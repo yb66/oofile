@@ -1,6 +1,5 @@
 == Sample output 
 
-If using oofile from a gem, remember to "require 'rubygems'"...
 
     >> require 'oofile'
     => true
@@ -17,7 +16,7 @@ If using oofile from a gem, remember to "require 'rubygems'"...
     => "/Users/dev/oofile/test/data"
     >> 
     ?> f = OOFile::FsEntry.fs_entry_from(file_string)
-    => #<OOFile::FileEntry:0x1016a34a0 @path="/Users/dev/oofile/test/data/testfile.txt">
+    => #<OOFile::FileEntry:0x1016a34f0 @path="/Users/dev/oofile/test/data/testfile.txt">
     >> 
     ?> f.extname
     => ".txt"
@@ -44,7 +43,7 @@ If using oofile from a gem, remember to "require 'rubygems'"...
     ?> # directories
     ?> 
     ?>  d= OOFile::FsEntry.fs_entry_from(dir_string)
-    => #<OOFile::DirEntry:0x10168a568 @path="/Users/dev/oofile/test/data">
+    => #<OOFile::DirEntry:0x10168a5b8 @path="/Users/dev/oofile/test/data">
     >> 
     ?> d.extname
     => ""

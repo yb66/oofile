@@ -94,7 +94,6 @@ task :create_demo do
         File.open(directory_prefix+'demo.rdoc','w') do |f|
           f.puts "== Sample output "
           f.puts
-          f.puts "If using oofile from a gem, remember to \"require 'rubygems'\"..."
           f.puts
           result = `irb -I#{ENV['SANDBOX']}/oofile/lib  #{directory_prefix}demo.script`
           result.gsub! /^/,"    "
