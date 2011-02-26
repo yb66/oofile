@@ -7,7 +7,7 @@ oofile is an object-oriented way of accessing the filesystem.
 * Basic operation can be seen in demo.rdoc
 * *source* http://github.com/dafydd/oofile
 * *rdoc* http://www.greenbarsoft.co.uk/software/oofile/rdoc
-* To build me, set an environment variable called *SANDBOX* to the directory above your sitebuilder directory. The tests need this pathname to access test data.
+* To build me, set an environment variable called *SANDBOX* to the directory above your oofile top-level directory. The tests need this pathname to access test data.
 
 === Compatibility
 This project is being developed on OS X. Automated testing for Linux will be included in future releases.
