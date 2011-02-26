@@ -41,15 +41,15 @@ module OOFile
     end
   
     # creates a file system entry for a fully qualified pathname
-    def self.fs_entry_from(f) 
+    def self.from(f) 
       return FileEntry.new(f) if File.file?(f) 
       return DirEntry.new(f)  if File.directory?(f) 
       UnknownEntry.new(f)
     end
   
     # creates a file system entry for a filename in the current file system entry object
-    def fs_entry_from(fs_entry)
-       FsEntry.fs_entry_from(File.join(@path, fs_entry))
+    def from(fs_entry)
+       FsEntry.from(File.join(@path, fs_entry))
     end
 
   end
@@ -74,7 +74,7 @@ module OOFile
     def traverse(traverser)
       traverser.traverse_dir(self)
       Dir.new(@path).each do |stringpath|
-        subentry = fs_entry_from(stringpath)
+        subentry = from(stringpath)
         subentry.traverse(traverser) unless stringpath=='.' || stringpath=='..' 
       end
     end

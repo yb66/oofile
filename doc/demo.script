@@ -7,7 +7,7 @@ file_string
 
 dir_string
 
-f = OOFile::FsEntry.fs_entry_from(file_string)
+f = OOFile::FsEntry.from(file_string)
 
 f.extname
 
@@ -22,11 +22,11 @@ f.ctime
 f.size
 
 # equality comparison
-f == OOFile::FsEntry.fs_entry_from(file_string)
+f == OOFile::FsEntry.from(file_string)
 
 # directories
 
- d= OOFile::FsEntry.fs_entry_from(dir_string)
+ d= OOFile::FsEntry.from(dir_string)
 
 d.extname
 

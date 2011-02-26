@@ -57,15 +57,15 @@ def test_size
 end
 
 def test_fs_entry_from
-  assert_equal OOFile::FileEntry, OOFile::FsEntry.fs_entry_from(TEST_FILEPATH).class
-  assert_equal OOFile::DirEntry,  OOFile::FsEntry.fs_entry_from(TESTDATA_DIR).class
-  assert_equal OOFile::UnknownEntry, OOFile::FsEntry.fs_entry_from('/dev/null').class
+  assert_equal OOFile::FileEntry, OOFile::FsEntry.from(TEST_FILEPATH).class
+  assert_equal OOFile::DirEntry,  OOFile::FsEntry.from(TESTDATA_DIR).class
+  assert_equal OOFile::UnknownEntry, OOFile::FsEntry.from('/dev/null').class
 end
 
 def test_instance_fs_entry_from
-  instance = OOFile::FsEntry.fs_entry_from(TESTDATA_DIR)
-  file_result = instance.fs_entry_from(TEST_FILENAME)
-  dir_result  = instance.fs_entry_from('.')
+  instance = OOFile::FsEntry.from(TESTDATA_DIR)
+  file_result = instance.from(TEST_FILENAME)
+  dir_result  = instance.from('.')
 
   assert_equal instance.path+FS+TEST_FILENAME, file_result.path
   assert_equal instance.path, dir_result.path
@@ -82,7 +82,7 @@ def test_traverse
   end
   traverser.expects(:traverse_dir).never()
 
-  file = OOFile::FsEntry.fs_entry_from(TEST_FILEPATH)
+  file = OOFile::FsEntry.from(TEST_FILEPATH)
   file.traverse(traverser)
 end
 
@@ -99,7 +99,7 @@ class DirEntryTest < Test::Unit::TestCase
       OOFile::DirEntry==dir.class && TESTDATA_DIR==dir.path
     end
 
-    file = OOFile::FsEntry.fs_entry_from(TESTDATA_DIR)
+    file = OOFile::FsEntry.from(TESTDATA_DIR)
     file.traverse(traverser)
   end
 

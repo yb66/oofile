@@ -1,2 +1,2 @@
 == todo
-
+* sort out tests for traverser which have been missed - or delete traverser functionality

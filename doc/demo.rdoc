@@ -15,8 +15,8 @@
     ?> dir_string
     => "/Users/dev/oofile/test/data"
     >> 
-    ?> f = OOFile::FsEntry.fs_entry_from(file_string)
-    => #<OOFile::FileEntry:0x1016a3630 @path="/Users/dev/oofile/test/data/testfile.txt">
+    ?> f = OOFile::FsEntry.from(file_string)
+    => #<OOFile::FileEntry:0x1016a3a68 @path="/Users/dev/oofile/test/data/testfile.txt">
     >> 
     ?> f.extname
     => ".txt"
@@ -37,13 +37,13 @@
     => 28
     >> 
     ?> # equality comparison
-    ?> f == OOFile::FsEntry.fs_entry_from(file_string)
+    ?> f == OOFile::FsEntry.from(file_string)
     => true
     >> 
     ?> # directories
     ?> 
-    ?>  d= OOFile::FsEntry.fs_entry_from(dir_string)
-    => #<OOFile::DirEntry:0x10168a6f8 @path="/Users/dev/oofile/test/data">
+    ?>  d= OOFile::FsEntry.from(dir_string)
+    => #<OOFile::DirEntry:0x10168b3a0 @path="/Users/dev/oofile/test/data">
     >> 
     ?> d.extname
     => ""
