@@ -35,7 +35,7 @@ config = YAML::load(File.open(File.expand_path('~/.greenbarftp')))
 
 def ftpsession
   Net::FTP.open(@ftphost) do |ftp|
-    oofile ftp.passive = true
+    ftp.passive = true
     ftp.debug_mode = true
     ftp.login @ftpusername, @ftppassword
     yield ftp

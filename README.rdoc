@@ -5,7 +5,7 @@ oofile is an object-oriented way of accessing the filesystem.
 * Install with:
     gem install oofile
 * Basic operation can be seen in demo.rdoc
-* *source* http://github.com/dafydd/sitebuilder
+* *source* http://github.com/dafydd/oofile
 * To build me, set an environment variable called *SANDBOX* to the directory above your sitebuilder directory. The tests need this pathname to access test data.
 
 === Compatibility
