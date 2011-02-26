@@ -1,0 +1,19 @@
+== OOFile
+oofile is an object-oriented way of accessing the filesystem.
+
+=== How to use it
+* Install with:
+    gem install oofile
+* Basic operation can be seen in demo.rdoc
+* *source* http://github.com/dafydd/sitebuilder
+* To build me, set an environment variable called *SANDBOX* to the directory above your sitebuilder directory. The tests need this pathname to access test data.
+
+=== Compatibility
+This project is being developed on OS X. Automated testing for Linux will be included in future releases.
+ 
+=== Licence
+This is open source software and comes with no warranty. See COPYING for details.
+ 
+http://www.greenbarsoft.co.uk
+
+Copyright 2009-2011 Green Bar Software Limited, UK
