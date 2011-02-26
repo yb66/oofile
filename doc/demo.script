@@ -1,47 +1,43 @@
+require 'oofile'
 
-# amend Rake to bootstrap this after release
+dir_string = File.join(ENV['SANDBOX'],'oofile','test','data')
+file_string = File.join(dir_string,'testfile.txt')
 
-#require 'rubygems'
-#require 'oofile'
-#
-#dir_string = File.join(ENV['SANDBOX'],'oofile','test','data')
-#file_string = File.join(dir_string,'testfile.txt')
-#
-#dir_string
-#
-#file_string
-#
-#f = OOFile::FsEntry.fs_entry_from(test_file)
-#
-#f.extname
-#
-#f.extnless
-#
-#f.basename
-#
-#f.dirname
-#
-#f.ctime
-#
-#f.size
-#
-## equality comparison
-#f== OOFile::FsEntry.fs_entry_from(file_string)
-#
-## directories
-#
-#d== OOFile::FsEntry.fs_entry_from(dir_string)
-#
-#d.extname
-#
-#d.extnless
-#
-#d.basename
-#
-#d.dirname
-#
-#d.ctime
-#
-#d.size
-#
-#
+file_string
+
+dir_string
+
+f = OOFile::FsEntry.fs_entry_from(file_string)
+
+f.extname
+
+f.extnless
+
+f.basename
+
+f.dirname
+
+f.ctime
+
+f.size
+
+# equality comparison
+f == OOFile::FsEntry.fs_entry_from(file_string)
+
+# directories
+
+ d= OOFile::FsEntry.fs_entry_from(dir_string)
+
+d.extname
+
+d.extnless
+
+d.basename
+
+d.dirname
+
+d.ctime
+
+d.size
+
+

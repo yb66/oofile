@@ -2,54 +2,70 @@
 
 If using oofile from a gem, remember to "require 'rubygems'"...
 
+    >> require 'oofile'
+    => true
     >> 
-    ?> # amend Rake to bootstrap this after release
+    ?> dir_string = File.join(ENV['SANDBOX'],'oofile','test','data')
+    => "/Users/dev/oofile/test/data"
+    >> file_string = File.join(dir_string,'testfile.txt')
+    => "/Users/dev/oofile/test/data/testfile.txt"
+    >> 
+    ?> file_string
+    => "/Users/dev/oofile/test/data/testfile.txt"
+    >> 
+    ?> dir_string
+    => "/Users/dev/oofile/test/data"
+    >> 
+    ?> f = OOFile::FsEntry.fs_entry_from(file_string)
+    => #<OOFile::FileEntry:0x1016a34a0 @path="/Users/dev/oofile/test/data/testfile.txt">
+    >> 
+    ?> f.extname
+    => ".txt"
+    >> 
+    ?> f.extnless
+    => "testfile"
+    >> 
+    ?> f.basename
+    => "testfile.txt"
+    >> 
+    ?> f.dirname
+    => "/Users/dev/oofile/test/data"
+    >> 
+    ?> f.ctime
+    => Sat Feb 26 01:34:57 +0000 2011
+    >> 
+    ?> f.size
+    => 28
+    >> 
+    ?> # equality comparison
+    ?> f == OOFile::FsEntry.fs_entry_from(file_string)
+    => true
+    >> 
+    ?> # directories
     ?> 
-    ?> #require 'rubygems'
-    ?> #require 'oofile'
-    ?> #
-    ?> #dir_string = File.join(ENV['SANDBOX'],'oofile','test','data')
-    ?> #file_string = File.join(dir_string,'testfile.txt')
-    ?> #
-    ?> #dir_string
-    ?> #
-    ?> #file_string
-    ?> #
-    ?> #f = OOFile::FsEntry.fs_entry_from(test_file)
-    ?> #
-    ?> #f.extname
-    ?> #
-    ?> #f.extnless
-    ?> #
-    ?> #f.basename
-    ?> #
-    ?> #f.dirname
-    ?> #
-    ?> #f.ctime
-    ?> #
-    ?> #f.size
-    ?> #
-    ?> ## equality comparison
-    ?> #f== OOFile::FsEntry.fs_entry_from(file_string)
-    ?> #
-    ?> ## directories
-    ?> #
-    ?> #d== OOFile::FsEntry.fs_entry_from(dir_string)
-    ?> #
-    ?> #d.extname
-    ?> #
-    ?> #d.extnless
-    ?> #
-    ?> #d.basename
-    ?> #
-    ?> #d.dirname
-    ?> #
-    ?> #d.ctime
-    ?> #
-    ?> #d.size
-    ?> #
-    ?> #
+    ?>  d= OOFile::FsEntry.fs_entry_from(dir_string)
+    => #<OOFile::DirEntry:0x10168a568 @path="/Users/dev/oofile/test/data">
+    >> 
+    ?> d.extname
+    => ""
+    >> 
+    ?> d.extnless
+    => "data"
+    >> 
+    ?> d.basename
+    => "data"
+    >> 
+    ?> d.dirname
+    => "/Users/dev/oofile/test"
+    >> 
+    ?> d.ctime
+    => Sat Feb 26 01:34:57 +0000 2011
+    >> 
+    ?> d.size
+    => 102
+    >> 
+    ?> 
     ?> >> => nil
 
 
- oofile 0.0.6
+ oofile 0.0.1
