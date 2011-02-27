@@ -24,15 +24,6 @@ Rake::RDocTask.new do |rdoc|
     rdoc.rdoc_files.add ['README.rdoc', 'CHANGELOG.rdoc', 'COPYING', 'TODO.rdoc', 'lib/**/*.rb', 'doc/demo.rdoc']
 end
 
-require 'net/ftp'
-require 'yaml'
-
-config = YAML::load(File.open(File.expand_path('~/.greenbarftp')))
-@ftpusername =config['username']
-@ftppassword =config['password']
-@ftphost     =config['host']
-@ftpsitepath =config['sitepath'] 
-
 def ftpsession
   Net::FTP.open(@ftphost) do |ftp|
     ftp.passive = true
@@ -49,8 +40,19 @@ def uploader ftp
   end
 end
 
+def initialiseRdocFTPCredentials
+  require 'net/ftp'
+  require 'yaml'
+  config = YAML::load(File.open(File.expand_path('~/.greenbarftp')))
+  @ftpusername =config['username']
+  @ftppassword =config['password']
+  @ftphost     =config['host']
+  @ftpsitepath =config['sitepath'] 
+end
+
 desc "upload the rdoc by ftp to '#{@ftphost}' based at '#{@ftpsitepath}'"
 task :upload_rdoc => :rerdoc do
+  initialiseRdocFTPCredentials
   Dir.chdir ENV['SANDBOX']+'/oofile/doc/rdoc' do
       ftpsession do |ftp|
       uploader = uploader ftp
