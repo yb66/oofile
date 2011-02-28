@@ -16,7 +16,7 @@
     => "/Users/dev/oofile/test/data"
     >> 
     ?> f = OOFile::FsEntry.from(file_string)
-    => #<OOFile::FileEntry:0x1016a3a68 @path="/Users/dev/oofile/test/data/testfile.txt">
+    => #<OOFile::FileEntry:0x1016a37e8 @path="/Users/dev/oofile/test/data/testfile.txt">
     >> 
     ?> f.extname
     => ".txt"
@@ -43,7 +43,7 @@
     ?> # directories
     ?> 
     ?>  d= OOFile::FsEntry.from(dir_string)
-    => #<OOFile::DirEntry:0x10168b3a0 @path="/Users/dev/oofile/test/data">
+    => #<OOFile::DirEntry:0x10168b120 @path="/Users/dev/oofile/test/data">
     >> 
     ?> d.extname
     => ""

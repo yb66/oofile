@@ -6,7 +6,7 @@ require 'oofile/filesystem'
 
 FS = File::SEPARATOR
 TEST_DIRNAME = 'data'
-TESTDATA_DIR = ENV['SANDBOX']+FS+'sitebuilder'+FS+'test'+FS+TEST_DIRNAME
+TESTDATA_DIR = ENV['SANDBOX']+FS+'oofile'+FS+'test'+FS+TEST_DIRNAME
 TEST_FILENAME = 'testfile.txt'
 TEST_FILEPATH = TESTDATA_DIR+FS+TEST_FILENAME
 

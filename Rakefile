@@ -73,7 +73,7 @@ SPEC = Gem::Specification.new do |s|
 	s.email = "os@greenbarsoft.co.uk" 
 	s.homepage = "http://www.greenbarsoft.co.uk/software/oofile" 
 	s.platform = Gem::Platform::RUBY 
-	s.summary = "Static site generator" 
+	s.summary = "Object-oriented, traversable file system representation." 
 	candidates = Dir.glob("{doc,lib,test,testfiles}/**/*") 
 	s.files = candidates.delete_if do |item| 
 	  item.include?("CVS") || item.include?("rdoc") 
