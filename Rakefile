@@ -11,6 +11,12 @@ end
 
 RDOC_OPTS = ['--quiet', '--title', "oofile Reference #{RELEASE_VERSION}", '--main', 'README.rdoc', '--inline-source']
 
+# create a non-supported filesystem entry for test data if necessary
+pipeentry_pathname=ENV['SANDBOX']+'/oofile/test/data/pipeentry'
+if !File.exists? pipeentry_pathname
+`mkfifo #{pipeentry_pathname}`
+end
+
 Rake::TestTask.new(:default) do |t|
   t.libs << 'test'
   t.test_files = FileList['test/**/*_test.rb']
@@ -76,7 +82,9 @@ SPEC = Gem::Specification.new do |s|
 	s.summary = "Object-oriented, traversable file system representation." 
 	candidates = Dir.glob("{doc,lib,test,testfiles}/**/*") 
 	s.files = candidates.delete_if do |item| 
-	  item.include?("CVS") || item.include?("rdoc") 
+	  item.include?("CVS") ||
+          item.include?("rdoc") ||
+          item.include?("test/data/pipeentry") 
 	end 
 	s.require_path = "lib" 
 	s.test_files =  Dir['./test/**/*.rb']
