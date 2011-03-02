@@ -98,8 +98,23 @@ class DirEntryTest < Test::Unit::TestCase
     traverser.expects(:traverse_dir).once().with do |dir| 
       OOFile::DirEntry==dir.class && TESTDATA_DIR==dir.path
     end
+    traverser.expects(:traverse_unknown).once().with do |unknown|
+      OOFile::UnknownEntry==unknown.class && 'pipeentry'==unknown.basename
+    end
 
     file = OOFile::FsEntry.from(TESTDATA_DIR)
+    file.traverse(traverser)
+  end
+
+end
+
+class UnknownEntryTest < Test::Unit::TestCase
+  def test_traverse
+    traverser = OOFile::Traverser.new
+    traverser.expects(:traverse_unknown).once().with do |unknown|
+      OOFile::UnknownEntry==unknown.class && 'pipeentry'==unknown.basename
+    end
+    file = OOFile::FsEntry.from(File.join(TESTDATA_DIR,'pipeentry'))
     file.traverse(traverser)
   end
 

@@ -52,6 +52,10 @@ module OOFile
        FsEntry.from(File.join(@path, fs_entry))
     end
 
+    # by default we ignore entries that cannot be handled
+    def traverse(entry)
+    end
+
   end
 
   # I represent a file in the filesystem
@@ -65,6 +69,9 @@ module OOFile
 
   # I represent filesystem entries that have been detected but aren't supported.
   class UnknownEntry < FsEntry
+    def traverse(traverser)
+      traverser.traverse_unknown(self)
+    end
   end
 
   # I represent directories in the filesystem.
