@@ -90,12 +90,13 @@ module OOFile
 
   # Visitor for traversing a filesystem
   class Traverser
-    # callback when traversing a DirEntry object 
     def traverse_dir(dir_entry)
     end
     
-    # callback when traversing a FileEntry object
     def traverse_file(file_entry)
+    end
+
+    def traverse_unknown(unknown_entry)
     end
   end
 
