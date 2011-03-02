@@ -16,7 +16,7 @@
     => "/Users/dev/oofile/test/data"
     >> 
     ?> f = OOFile::FsEntry.from(file_string)
-    => #<OOFile::FileEntry:0x1016a37e8 @path="/Users/dev/oofile/test/data/testfile.txt">
+    => #<OOFile::FileEntry:0x101683358 @path="/Users/dev/oofile/test/data/testfile.txt">
     >> 
     ?> f.extname
     => ".txt"
@@ -43,7 +43,7 @@
     ?> # directories
     ?> 
     ?>  d= OOFile::FsEntry.from(dir_string)
-    => #<OOFile::DirEntry:0x10168b120 @path="/Users/dev/oofile/test/data">
+    => #<OOFile::DirEntry:0x10166ac90 @path="/Users/dev/oofile/test/data">
     >> 
     ?> d.extname
     => ""
@@ -58,13 +58,13 @@
     => "/Users/dev/oofile/test"
     >> 
     ?> d.ctime
-    => Sat Feb 26 01:34:57 +0000 2011
+    => Wed Mar 02 23:00:20 +0000 2011
     >> 
     ?> d.size
-    => 102
+    => 136
     >> 
     ?> 
     ?> >> => nil
 
 
- oofile 0.0.1
+ oofile 0.0.3
