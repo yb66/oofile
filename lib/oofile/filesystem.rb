@@ -81,8 +81,7 @@ module OOFile
     def traverse(traverser)
       traverser.traverse_dir(self)
       Dir.new(@path).each do |stringpath|
-        subentry = from(stringpath)
-        subentry.traverse(traverser) unless stringpath=='.' || stringpath=='..' 
+        from(stringpath).traverse(traverser) unless stringpath=='.' || stringpath=='..' 
       end
     end
 
