@@ -117,5 +117,6 @@ task :rdoc => :create_demo
 require 'rcov/rcovtask'
  Rcov::RcovTask.new do |t|
    t.test_files = FileList['test/*_test.rb']
+   t.rcov_opts = ['--exclude', '/rubygems,/gems/']  
    # t.verbose = true     # uncomment to see the executed command
  end
