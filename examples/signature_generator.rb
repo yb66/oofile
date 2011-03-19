@@ -17,7 +17,7 @@ end
 
 
 t = HashTraverser.new
-(OOFile::FsEntry.from('.')).traverse(t)
+OOFile::FsEntry.from('.').traverse(t)
 
 puts t.entries.to_yaml
 
