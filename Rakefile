@@ -56,7 +56,7 @@ def initialiseRdocFTPCredentials
   @ftpsitepath =config['sitepath'] 
 end
 
-desc "upload the rdoc by ftp to '#{@ftphost}' based at '#{@ftpsitepath}'"
+desc "upload the rdoc by ftp" 
 task :upload_rdoc => :rerdoc do
   initialiseRdocFTPCredentials
   Dir.chdir ENV['SANDBOX']+'/oofile/doc/rdoc' do
