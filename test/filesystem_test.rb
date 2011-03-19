@@ -71,6 +71,7 @@ def test_instance_fs_entry_from
   assert_equal instance.path, dir_result.path
 end
 
+
 end
 
 class FileEntryTest < Test::Unit::TestCase
@@ -115,6 +116,20 @@ class UnknownEntryTest < Test::Unit::TestCase
       OOFile::UnknownEntry==unknown.class && 'pipeentry'==unknown.basename
     end
     file = OOFile::FsEntry.from(File.join(TESTDATA_DIR,'pipeentry'))
+    file.traverse(traverser)
+  end
+  
+  def test_traverse_on_nonexistent_handled_as_unknown
+    traverser= OOFile::Traverser.new
+    traverser.expects(:traverse_file).never()
+    traverser.expects(:traverse_dir).never()
+    traverser.expects(:traverse_unknown).once().with do |unknown|
+      OOFile::UnknownEntry==unknown.class && 'nonexistentfile'==unknown.basename
+    end
+
+    file = OOFile::FsEntry.from(File.join(TESTDATA_DIR,'nonexistentfile'))
+   
+    assert_equal file.class, OOFile::UnknownEntry
     file.traverse(traverser)
   end
 

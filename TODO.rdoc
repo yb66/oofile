@@ -1,2 +1,8 @@
 == todo
+
+== done
 * exclude mocha from rcov coverage
+* nonexistent files/dirs map to UnknownEntry and are traversable. See test_traverse_on_nonexistent_handled_as_unknown
+
+ 
+
