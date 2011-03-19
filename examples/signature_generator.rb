@@ -15,10 +15,9 @@ class HashTraverser < OOFile::Traverser
   end
 end
 
-d = OOFile::FsEntry.from('.')
-t = HashTraverser.new
-d.traverse(t)
 
+t = HashTraverser.new
+(OOFile::FsEntry.from('.')).traverse(t)
 
 puts t.entries.to_yaml
 
