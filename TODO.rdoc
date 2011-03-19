@@ -1,4 +1,6 @@
 == todo
+* set up hudson
+* set up to run rake against Ruby 1.9 (in JRuby?)
 
 == done
 * exclude mocha from rcov coverage
