@@ -1,4 +1,7 @@
 == todo
+* rename all "traversers" to "visitors" to not be silly
+* create relative_path_from method for files and dirs
+* test OOFile::FileTraverser
 * set up hudson
 * set up to run rake against Ruby 1.9 (in JRuby?)
 
