@@ -35,6 +35,10 @@ module OOFile
     def ctime
       File::ctime(@path)
     end
+    
+    def mtime
+      File::mtime(@path)
+    end
 
     def size
       File.size(@path)
@@ -54,6 +58,10 @@ module OOFile
 
     # by default we ignore entries that cannot be handled
     def traverse(entry)
+    end
+    
+    def inspect
+      "#{self.class.to_s}(#{@path})"
     end
 
   end
@@ -77,6 +85,11 @@ module OOFile
   # I represent directories in the filesystem.
   class DirEntry < FsEntry	
 
+    # I return the files immediately in my directory.
+    def files
+      (Dir.new(@path).entries.select {|entry| File.file?(File.join(@path,entry))}).map {|filepath| FsEntry.from(File.join(@path,filepath)) }
+    end
+    
     # I am visitable with a Traverser. I perform inorder traversal of FsEntries.
     def traverse(traverser)
       traverser.traverse_dir(self)
@@ -99,4 +112,4 @@ module OOFile
     end
   end
 
-end
+end 

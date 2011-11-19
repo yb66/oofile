@@ -3,9 +3,10 @@
 * create relative_path_from method for files and dirs
 * test OOFile::FileTraverser
 * set up hudson
-* set up to run rake against Ruby 1.9 (in JRuby?)
 
 == done
+* added a_dir_entry.files to return array of FsFile entries i.e. the files immediately within the target dir
+* set up to run rake against Ruby 1.9 & JRuby
 * exclude mocha from rcov coverage
 * nonexistent files/dirs map to UnknownEntry and are traversable. See test_traverse_on_nonexistent_handled_as_unknown
 
